@@ -9,7 +9,7 @@ export default function HeroSection() {
     <section
       id="hero"
       className="relative max-w-7xl mx-auto px-6 py-24 md:py-28
-                 flex flex-col-reverse md:flex-row items-center gap-14 text-white"
+                 flex flex-col-reverse md:flex-row items-center gap-14 text-white mt-15"
     >
       <div className="flex-1 flex flex-col items-center md:items-start text-center md:text-left">
         <div className="mb-4">
