@@ -1,40 +1,27 @@
 "use client";
 
 import { motion, Variants } from "framer-motion";
-import {
-  ClockIcon,
-  ChartBarIcon,
-  ArrowsPointingOutIcon,
-  BoltIcon, 
-} from "@heroicons/react/24/outline";
 
-const features = [
+const testimonials = [
   {
-    title: "Smart Automation",
-    description:
-      "Automate workflows with AI-powered tools to save time and boost productivity.",
-    icon: ClockIcon,
+    name: "Aarav",
+    role: "Founder, Finlytics",
+    quote:
+      "This platform completely transformed how we automate workflows. We saved weeks of manual effort within the first month.",
     gradient: "from-indigo-500 via-purple-500 to-violet-500",
   },
   {
-    title: "Real-time Analytics",
-    description:
-      "Gain insights on user behavior and system performance in real time.",
-    icon: ChartBarIcon,
+    name: "Sarah",
+    role: "Product Manager, NovaTech",
+    quote:
+      "The real-time analytics are insanely powerful. We finally understand user behavior as it happens.",
     gradient: "from-cyan-400 via-blue-400 to-indigo-500",
   },
   {
-    title: "Seamless Integration",
-    description:
-      "Connect with popular services and APIs effortlessly to extend your app's capabilities.",
-    icon: ArrowsPointingOutIcon,
-    gradient: "from-pink-500 via-purple-500 to-indigo-500",
-  },
-  {
-    title: "AI-Powered Insights",
-    description:
-      "Leverage AI to get actionable insights that help you grow your business faster.",
-    icon: BoltIcon,
+    name: "Rohan",
+    role: "CTO, ScaleUp AI",
+    quote:
+      "Seamless integrations and AI-driven insights helped us scale faster than ever. It feels built for startups.",
     gradient: "from-yellow-400 via-orange-400 to-red-500",
   },
 ];
@@ -56,10 +43,10 @@ const cardVariants: Variants = {
   hover: { scale: 1.05, boxShadow: "0 25px 50px rgba(99,102,241,0.35)" },
 };
 
-export default function Features() {
+export default function Testimonials() {
   return (
     <section
-      id="features"
+      id="testimonials"
       className="relative max-w-7xl mx-auto px-6 py-20 md:py-32 text-white"
     >
       <motion.h2
@@ -69,7 +56,7 @@ export default function Features() {
         viewport={{ once: true, amount: 0.5 }}
         transition={{ duration: 0.7 }}
       >
-        Why Choose Us
+        Loved by Growing Teams
       </motion.h2>
 
       <motion.div
@@ -79,26 +66,32 @@ export default function Features() {
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
       >
-        {features.map(({ title, description, icon: Icon, gradient }, i) => (
+        {testimonials.map(({ name, role, quote, gradient }) => (
           <motion.div
-            key={title}
-            className="relative overflow-hidden rounded-3xl p-8 shadow-lg cursor-pointer bg-[#111827]/70 backdrop-blur-md flex-1 min-w-[250px] flex flex-col gap-6 transition-transform duration-300"
+            key={name}
+            className="relative overflow-hidden rounded-3xl p-8 shadow-lg cursor-pointer bg-[#111827]/70 backdrop-blur-md flex-1 min-w-[280px] flex flex-col gap-6"
             variants={cardVariants}
             whileHover="hover"
           >
+            {/* Animated gradient background */}
             <motion.div
               className={`absolute inset-0 bg-gradient-to-r ${gradient} opacity-20 blur-2xl pointer-events-none z-0`}
               animate={{ x: [0, 50, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
             />
-            <div className="relative z-10 flex items-center justify-start gap-4">
-              <div className={`p-4 rounded-lg bg-gradient-to-tr ${gradient} w-max`}>
-                <Icon className="h-10 w-10" />
+            <p className="relative z-10 text-indigo-200 leading-relaxed text-lg">
+              “{quote}”
+            </p>
+            <div className="relative z-10 mt-auto flex items-center gap-4">
+              <div
+                className={`h-12 w-12 rounded-full flex items-center justify-center font-bold bg-gradient-to-tr ${gradient}`}
+              >
+                {name.charAt(0)}
               </div>
-            </div>
-            <div className="relative z-10 flex flex-col gap-2">
-              <h3 className="text-2xl font-semibold">{title}</h3>
-              <p className="text-indigo-300 leading-relaxed">{description}</p>
+              <div>
+                <h4 className="font-semibold text-lg">{name}</h4>
+                <p className="text-indigo-300 text-sm">{role}</p>
+              </div>
             </div>
           </motion.div>
         ))}

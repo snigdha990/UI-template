@@ -40,8 +40,6 @@ export default function Header({ darkMode, setDarkMode }: HeaderProps) {
                 AI
               </span>
             </a>
-
-            {/* Desktop Nav */}
             <nav className="hidden md:flex items-center gap-8 text-white/80">
               {NAV_LINKS.map((link) => (
                 <a
@@ -53,8 +51,6 @@ export default function Header({ darkMode, setDarkMode }: HeaderProps) {
                 </a>
               ))}
             </nav>
-
-            {/* Desktop Actions */}
             <div className="hidden md:flex items-center gap-4">
               <motion.button
                 onClick={() => setDarkMode(!darkMode)}
